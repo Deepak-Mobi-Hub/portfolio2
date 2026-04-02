@@ -182,6 +182,30 @@
         }
 
         /* Tape effect */
+        .tape {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            width: 80px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            transform: translateX(-50%) rotate(-3deg);
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        .drawn-box:hover .tape, .drawn-box-2:hover .tape {
+            transform: translateX(-50%) rotate(5deg) scale(1.1);
+        }
+
+        /* Scroll Reveal Utility - Snappy instead of smooth */
+        .reveal { opacity: 0; transform: translateY(40px) rotate(10deg) scale(0.9); transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+        .reveal-left { opacity: 0; transform: translateX(-60px) rotate(-10deg) scale(0.9); transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+        .reveal-right { opacity: 0; transform: translateX(60px) rotate(10deg) scale(0.9); transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+        .reveal-scale { opacity: 0; transform: scale(0.3) rotate(-15deg); transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+        
+        .active { opacity: 1; transform: translate(0) scale(1) rotate(0deg); }
+
         /* Delay modifiers */
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
@@ -269,12 +293,16 @@
 </head>
 <body class="selection:bg-brand-pink selection:text-white pb-20 md:pb-0">
 
-    <!-- Background Doodles (Parallax Enabled) -->
+    <!-- Background Doodles (Parallax Enabled) - Mixed with Devices -->
     <i class="ph-bold ph-star doodle parallax text-brand-yellow text-7xl animate-spin-slow top-20 left-10" data-speed="3"></i>
     <i class="ph-bold ph-lightning doodle parallax text-brand-cyan text-8xl animate-float-crazy top-40 right-20" data-speed="-2"></i>
     <i class="ph-bold ph-spiral doodle parallax text-brand-pink text-9xl animate-wiggle bottom-40 left-20" data-speed="4"></i>
     <i class="ph-bold ph-smiley doodle parallax text-brand-dark text-6xl animate-float-crazy top-1/2 right-10 opacity-20" data-speed="-5"></i>
     <i class="ph-bold ph-heart doodle parallax text-brand-pink text-5xl animate-spin-slow bottom-20 right-1/4 opacity-40" data-speed="2"></i>
+    
+    <!-- New Device Doodles -->
+    <i class="ph-fill ph-apple-logo doodle parallax text-brand-cyan text-[7rem] animate-float-crazy top-80 left-[12%] opacity-30" data-speed="2.5"></i>
+    <i class="ph-fill ph-android-logo doodle parallax text-brand-yellow text-[8rem] animate-wiggle bottom-60 right-[15%] opacity-40" data-speed="-3.5"></i>
 
     <!-- Navigation (Notebook Header) -->
     <nav class="fixed w-full top-0 z-50 bg-brand-paper border-b-4 border-brand-dark transition-all duration-300 shadow-brutal">
@@ -382,6 +410,9 @@
     <!-- 2. INTRODUCTION (PERSONAL BRANDING) -->
     <section id="about" class="py-20 md:py-32 relative overflow-hidden bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9IiNjY2MiLz48L3N2Zz4=')]">
         
+        <!-- Extra Device Doodles Background -->
+        <i class="ph-bold ph-device-mobile doodle parallax text-brand-pink text-[14rem] top-10 right-[-3rem] opacity-20 animate-spin-slow" data-speed="1.8"></i>
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="max-w-4xl mx-auto text-center reveal-scale relative">
                 
@@ -529,7 +560,11 @@
 
     <!-- 5. LIVE STOCK SHOWCASE -->
     <section id="stock" class="py-20 md:py-32 relative">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Extra Device Doodles -->
+        <i class="ph-bold ph-laptop doodle parallax text-brand-dark text-[15rem] top-40 left-[1rem] opacity-[0.08] animate-float-crazy" data-speed="-2"></i>
+        <i class="ph-bold ph-watch doodle parallax text-brand-cyan text-9xl bottom-10 right-10 opacity-20 animate-wiggle" data-speed="3"></i>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-14 gap-6 reveal-scale">
                 <div>
                     <h2 class="text-5xl md:text-7xl font-marker mb-4 highlight-cyan hover-chaos cursor-pointer inline-block">THE LEDGER 📋</h2>
@@ -673,6 +708,8 @@
     <!-- 8. HOW WE WORK -->
     <section id="process" class="py-20 md:py-32 relative">
         <i class="ph-bold ph-gear-six doodle parallax text-brand-dark text-[15rem] top-20 left-10 opacity-10 animate-spin-slow" data-speed="2"></i>
+        <!-- Extra Tablet Doodle -->
+        <i class="ph-bold ph-tablet doodle parallax text-brand-yellow text-[12rem] bottom-10 right-[-3rem] opacity-20 animate-float-crazy" data-speed="-1"></i>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <h2 class="text-5xl md:text-7xl font-marker text-center mb-20 hover-chaos cursor-pointer"><span class="highlight-cyan inline-block">HOW IT WORKS</span> 🛠️</h2>
@@ -816,6 +853,9 @@
 
     <!-- 10b. CONTACT SECTION -->
     <section id="contact" class="py-20 md:py-32 relative bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMiIgZmlsbD0iI2NjYyIvPjwvc3ZnPg==')]">
+        <!-- Headphones doodle -->
+        <i class="ph-fill ph-headphones doodle parallax text-brand-pink text-[10rem] top-10 left-10 opacity-20 animate-spin-slow" data-speed="1.5"></i>
+        
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <h2 class="text-6xl md:text-8xl font-marker text-center mb-16 hover-chaos cursor-pointer"><span class="highlight-cyan inline-block transform rotate-2">DROP A LINE ✍️</span></h2>
             
@@ -886,34 +926,34 @@
     </footer>
 
     <!-- Desktop Floating Chat Button -->
-    <div class="hidden md:block fixed bottom-10 right-10 z-[60] magnetic-wrap">
-        <button id="chat-trigger" class="magnetic w-24 h-24 bg-[#25D366] text-brand-dark border-4 border-brand-dark rounded-full shadow-brutal flex items-center justify-center text-5xl hover:shadow-brutal-hover hover:bg-brand-yellow transition-colors animate-wiggle interactive">
+    <div class="hidden md:block fixed bottom-8 right-6 z-[60] magnetic-wrap">
+        <button id="chat-trigger" class="magnetic w-16 h-16 bg-[#25D366] text-brand-dark border-4 border-brand-dark rounded-full shadow-brutal flex items-center justify-center text-3xl hover:shadow-brutal-hover hover:bg-brand-yellow transition-colors animate-wiggle interactive">
             <i class="ph-bold ph-chat-teardrop-dots"></i>
         </button>
     </div>
 
     <!-- Chat Popup UI -->
-    <div id="chat-window" class="hidden md:flex fixed bottom-40 right-10 w-[380px] bg-white drawn-box-2 shadow-brutal-lg z-[70] hidden-chat flex-col overflow-hidden transform rotate-1">
-        <div class="bg-brand-dark p-5 flex items-center justify-between text-white border-b-4 border-brand-dark">
-            <h4 class="font-marker text-2xl flex items-center gap-2"><div class="w-3 h-3 bg-green-500 rounded-full animate-pulse-fast border border-brand-dark"></div> DEEPAK CHAT</h4>
+    <div id="chat-window" class="hidden md:flex fixed bottom-32 right-6 w-[300px] bg-white drawn-box-2 shadow-brutal-lg z-[70] hidden-chat flex-col overflow-hidden transform rotate-1">
+        <div class="bg-brand-dark p-3 flex items-center justify-between text-white border-b-4 border-brand-dark">
+            <h4 class="font-marker text-lg flex items-center gap-2"><div class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse-fast border border-brand-dark"></div> DEEPAK CHAT</h4>
             <button id="close-chat" class="hover:text-brand-pink hover:rotate-90 transition-all interactive bg-white/10 p-1 rounded-md">
-                <i class="ph-bold ph-x text-3xl"></i>
+                <i class="ph-bold ph-x text-xl"></i>
             </button>
         </div>
-        <div class="p-6 bg-brand-paper h-[280px] overflow-y-auto flex flex-col gap-5 border-b-4 border-brand-dark custom-scrollbar">
-            <div class="bg-brand-yellow p-4 border-4 border-brand-dark font-bold text-xl rounded-2xl rounded-tl-none shadow-[4px_4px_0_0_#111] animate-message-pop transform -rotate-1">
+        <div class="p-4 bg-brand-paper h-[200px] overflow-y-auto flex flex-col gap-4 border-b-4 border-brand-dark custom-scrollbar">
+            <div class="bg-brand-yellow p-3 border-4 border-brand-dark font-bold text-base rounded-2xl rounded-tl-none shadow-[2px_2px_0_0_#111] animate-message-pop transform -rotate-1">
                 <span id="typed-chat-message"></span>
             </div>
         </div>
-        <div class="p-5 bg-brand-cyan flex flex-col gap-4">
-            <button onclick="window.openChatWithPrefill('Hi Deepak, please send me the latest Used & refurbished stock list.')" class="w-full text-left px-5 py-3 bg-white border-4 border-brand-dark font-bold text-xl hover:bg-brand-pink hover:text-white shadow-[4px_4px_0_0_#111] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all interactive transform rotate-1">
+        <div class="p-4 bg-brand-cyan flex flex-col gap-3">
+            <button onclick="window.openChatWithPrefill('Hi Deepak, please send me the latest Used & refurbished stock list.')" class="w-full text-left px-4 py-2 bg-white border-4 border-brand-dark font-bold text-base hover:bg-brand-pink hover:text-white shadow-[2px_2px_0_0_#111] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all interactive transform rotate-1">
                 📄 Send Stock List
             </button>
-            <button onclick="window.openChatWithPrefill('Hi Deepak, I would like to check value-driven supply pricing for specific models.')" class="w-full text-left px-5 py-3 bg-white border-4 border-brand-dark font-bold text-xl hover:bg-brand-yellow hover:text-brand-dark shadow-[4px_4px_0_0_#111] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all interactive transform -rotate-1">
+            <button onclick="window.openChatWithPrefill('Hi Deepak, I would like to check value-driven supply pricing for specific models.')" class="w-full text-left px-4 py-2 bg-white border-4 border-brand-dark font-bold text-base hover:bg-brand-yellow hover:text-brand-dark shadow-[2px_2px_0_0_#111] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all interactive transform -rotate-1">
                 💼 Discuss Supply
             </button>
-            <a href="https://wa.me/447477740831" target="_blank" class="w-full text-center px-5 py-4 bg-[#25D366] text-brand-dark border-4 border-brand-dark font-marker text-2xl shadow-[4px_4px_0_0_#111] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all interactive transform rotate-1 flex justify-center items-center gap-2">
-                <i class="ph-bold ph-whatsapp-logo text-3xl"></i> WHATSAPP ME
+            <a href="https://wa.me/447477740831" target="_blank" class="w-full text-center px-4 py-2 bg-[#25D366] text-brand-dark border-4 border-brand-dark font-marker text-lg shadow-[2px_2px_0_0_#111] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all interactive transform rotate-1 flex justify-center items-center gap-2">
+                <i class="ph-bold ph-whatsapp-logo text-2xl"></i> WHATSAPP ME
             </a>
         </div>
     </div>
